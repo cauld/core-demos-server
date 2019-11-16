@@ -104,7 +104,7 @@ const DEMO_USERS_HOME_DIR = "/users/fry";
 const filesToGenerate = [];
 ["", "folder1", "folder2"].forEach(f => {
   const folder = (f === "") ? DEMO_USERS_HOME_DIR : `${DEMO_USERS_HOME_DIR}/${f}`;
-  filesToGenerate.push(generateVfsFolder(f, ));
+  //filesToGenerate.push(generateVfsFolder(f, ));
   for (let i=0; i<100; i++) {
     filesToGenerate.push(generateVfsFile(i, getRandomItem(fileTypes), folder));
   }

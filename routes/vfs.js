@@ -8,7 +8,7 @@ const { sampleVFSResponse } = require('../file-explorer/vfsDataGenerator');
 
 // Route = /api/vfs/files
 router.get('/files', (req, res) => {
-  res.json(sampleVFSResponse)
+  res.json(sampleVFSResponse);
 });
 
 module.exports = router;
