@@ -13,9 +13,11 @@ function getRandomItem(items) {
 
 // Builds a VFS breadcrumb
 function generateVfsFileBreadcrumbs(filePath) {
-  const fileParts = !filePath ? [""] : filePath.split("/");
+	const fileParts = !filePath ? [""] : filePath.split("/");
+	let stringBuilder = '';
   return fileParts.map(fp => {
-    return { "path": `/${fp}` }
+		stringBuilder += `/${fp}`;
+    return { "path": stringBuilder }
   });
 }
 
@@ -93,7 +95,7 @@ function generateVfsFile(fileName, fileExtension, filePath) {
 		"md5Hash": "478abaf41b1fa24a6bf70dc39e9bf550",
 		"assetCategory": "OTHER",
 		"deleted": null,
-		"breadcrumbs": generateVfsFileBreadcrumbs(fileNameWithExtension)
+		"breadcrumbs": generateVfsFileBreadcrumbs(`${DEMO_USERS_HOME_DIR}/${fileNameWithExtension}`)
   }
 }
 
