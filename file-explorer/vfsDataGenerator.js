@@ -14,9 +14,9 @@ function getRandomItem(items) {
 // Builds a VFS breadcrumb
 function generateVfsFileBreadcrumbs(filePath) {
 	const fileParts = !filePath ? [""] : filePath.split("/");
-	let stringBuilder = '';
+	let stringBuilder = '/';
   return fileParts.map(fp => {
-		stringBuilder += `/${fp}`;
+		stringBuilder += `${fp}`;
     return { "path": stringBuilder }
   });
 }
