@@ -1,0 +1,17 @@
+{
+  "name": "core-demos-server",
+  "version": "1.0.0",
+  "description": "demos",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "10.x"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
