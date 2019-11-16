@@ -16,7 +16,7 @@ function generateVfsFileBreadcrumbs(filePath) {
 	const fileParts = !filePath ? [""] : filePath.split("/");
 	let stringBuilder = '/';
   return fileParts.map(fp => {
-		stringBuilder += `${fp}`;
+		stringBuilder += fp[0] === '/' ? fp : `/${fp}`;
     return { "path": stringBuilder }
   });
 }
