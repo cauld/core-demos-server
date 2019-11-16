@@ -13,10 +13,10 @@ function getRandomItem(items) {
 
 // Builds a VFS breadcrumb
 function generateVfsFileBreadcrumbs(filePath) {
-	const fileParts = !filePath ? [""] : filePath.split("/");
-	let stringBuilder = '/';
+	const fileParts = !filePath ? ["/"] : filePath.split("/");
+	let stringBuilder = '';
   return fileParts.map(fp => {
-		stringBuilder += fp[0] === '/' ? fp : `/${fp}`;
+		stringBuilder += fp.startsWith('/') === '/' ? fp : `/${fp}`;
     return { "path": stringBuilder }
   });
 }
