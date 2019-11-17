@@ -11,7 +11,7 @@ router.get('/files', (req, res) => {
   const { rootDirectoryPath, startRow, endRow } = req.query;
   const groupKeys = req.query.groupKeys && Array.isArray(req.query.groupKeys) ? req.query.groupKeys : [];
 
-  let file = rootDirectoryPath.split('/').join('_');
+  let file = rootDirectoryPath.split('/').join('_').slice(1);
   file += groupKeys.length > 0  ? `_${groupKeys.join('_')}` : '';
   file += `_${startRow}_${endRow}`;
 
