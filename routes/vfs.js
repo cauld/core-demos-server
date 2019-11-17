@@ -11,15 +11,15 @@ router.get('/files', (req, res) => {
   const { rootDirectoryPath, startRow, endRow } = req.query;
   const groupKeys = req.query.groupKeys && Array.isArray(req.query.groupKeys) ? req.query.groupKeys : [];
 
-  let file = rootDirectoryPath.split('/').join('_').slice(1);
-  file += groupKeys.length > 0  ? `_${groupKeys.join('_')}` : '';
-  file += `_${startRow}_${endRow}`;
+  let fileName = rootDirectoryPath.split('/').join('_').slice(1);
+  fileName += groupKeys.length > 0  ? `_${groupKeys.join('_')}` : '';
+  fileName += `_${startRow}_${endRow}.json`;
+  const filePath = `../file-explorer/data/vfs/${fileName}`;
 
-  jsonfile.readFile(file, (err, obj) => {
+  jsonfile.readFile(filePath, (err, obj) => {
     if (err) {
       res.status(500).send('Something broke!');
     }
-
     res.json({ obj });
   });
 });
