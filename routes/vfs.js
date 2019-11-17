@@ -8,6 +8,10 @@ const jsonfile = require('jsonfile');
 
 // Route = /api/vfs/files
 router.get('/files', (req, res) => {
+  const { rootDirectoryPath, startRow, endRow } = req.query;
+  const groupKeys = req.query.groupKeys ? req.query.groupKeys : [];
+
+
   /*
   rootDirectoryPath=%2Fusers%2Ffry
   startRow=0
@@ -21,7 +25,9 @@ router.get('/files', (req, res) => {
   */
 
   //res.json(sampleVFSResponse);
-  res.send(req.query);
+  res.json({
+    rootDirectoryPath, startRow, endRow, groupKeys
+  });
 });
 
 module.exports = router;
