@@ -11,7 +11,11 @@ router.get('/files', (req, res) => {
   const { rootDirectoryPath, startRow, endRow } = req.query;
   const groupKeys = req.query.groupKeys && Array.isArray(req.query.groupKeys) ? req.query.groupKeys : [];
 
-  
+  let file = rootDirectoryPath.split('/').join('_');
+  file += groupKeys.length > 0  ? `_${groupKeys.join('_')}` : '';
+  file += `_${startRow}_${endRow}`;
+
+
 
   /*
   rootDirectoryPath=%2Fusers%2Ffry
@@ -27,7 +31,7 @@ router.get('/files', (req, res) => {
 
   //res.json(sampleVFSResponse);
   res.json({
-    rootDirectoryPath, startRow, endRow, groupKeys
+    file
   });
 });
 
