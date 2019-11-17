@@ -8,9 +8,6 @@ const jsonfile = require('jsonfile');
 
 // Route = /api/vfs/files
 router.get('/files', (req, res) => {
-
-  console.log('@@@@@@@@@@@@req', req);
-
   /*
   rootDirectoryPath=%2Fusers%2Ffry
   startRow=0
@@ -24,7 +21,7 @@ router.get('/files', (req, res) => {
   */
 
   //res.json(sampleVFSResponse);
-  res.send('FOO');
+  res.send(req.query);
 });
 
 module.exports = router;
