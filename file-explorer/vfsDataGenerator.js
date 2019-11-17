@@ -106,8 +106,10 @@ MAIN - Generate a sample file/directory structure
 const DEMO_USERS_HOME_DIR = "/users/fry";
 const filesToGenerate = [];
 ["", "folder1", "folder2"].forEach(f => {
-  const folder = (f === "") ? DEMO_USERS_HOME_DIR : `${DEMO_USERS_HOME_DIR}/${f}`;
-  filesToGenerate.push(generateVfsFolder(f, folder));
+	const folder = (f === "") ? DEMO_USERS_HOME_DIR : `${DEMO_USERS_HOME_DIR}/${f}`;
+	if (folder !== DEMO_USERS_HOME_DIR) {
+		filesToGenerate.push(generateVfsFolder(f, folder));
+	}
   for (let i=0; i<100; i++) {
     filesToGenerate.push(generateVfsFile(i, getRandomItem(fileTypes), folder));
   }
