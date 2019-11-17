@@ -64,7 +64,7 @@ function generateVfsFile(fileName, fileExtension, parentPath) {
 	const fileNameWithExtension = `${fileName}.${fileExtension}`;
 	const fullFilePath = `${parentPath}/${fileNameWithExtension}`;
   return {
-		"fileName": `${fileName}`,
+		"fileName": `${fileNameWithExtension}`,
 		"extension": `${fileExtension}`,
 		"inherits": true,
 		"isHidden": false,
