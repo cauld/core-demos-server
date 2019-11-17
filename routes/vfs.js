@@ -15,23 +15,12 @@ router.get('/files', (req, res) => {
   file += groupKeys.length > 0  ? `_${groupKeys.join('_')}` : '';
   file += `_${startRow}_${endRow}`;
 
+  jsonfile.readFile(file, (err, obj) => {
+    if (err) {
+      res.status(500).send('Something broke!');
+    }
 
-
-  /*
-  rootDirectoryPath=%2Fusers%2Ffry
-  startRow=0
-  endRow=100
-
-  const file = '/tmp/data.json'
-  jsonfile.readFile(file, function (err, obj) {
-    if (err) console.error(err)
-    console.dir(obj)
-  })
-  */
-
-  //res.json(sampleVFSResponse);
-  res.json({
-    file
+    res.json({ obj });
   });
 });
 
