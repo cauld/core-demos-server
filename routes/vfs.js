@@ -9,8 +9,9 @@ const jsonfile = require('jsonfile');
 // Route = /api/vfs/files
 router.get('/files', (req, res) => {
   const { rootDirectoryPath, startRow, endRow } = req.query;
-  const groupKeys = req.query.groupKeys ? req.query.groupKeys : [];
+  const groupKeys = req.query.groupKeys && Array.isArray(req.query.groupKeys) ? req.query.groupKeys : [];
 
+  
 
   /*
   rootDirectoryPath=%2Fusers%2Ffry
